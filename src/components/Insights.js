@@ -55,6 +55,7 @@ class Insights extends Component {
   };
 
   render() {
+    const lighthouseResult = this.props.data.lighthouseResult.audits;
     return (
       <>
         <div className="border w-9/12 mx-auto">
@@ -291,42 +292,76 @@ class Insights extends Component {
                   <div className="w-4 h-4 rounded-full bg-green-500 mx-4 mt-1"></div>
                   <span>First Contentful Paint</span>
                 </div>
-                <span className="text-green-500 text-3xl ml-12">{}</span>
+                <span className="text-green-500 text-3xl ml-12">
+                  {
+                    this.props.data.lighthouseResult.audits[
+                      "first-contentful-paint"
+                    ].displayValue
+                  }
+                </span>
               </li>
               <li className="w-5/12 border-t my-4">
                 <div className="flex">
                   <div className="w-4 h-4 rounded-full bg-green-500 mx-4 mt-1"></div>
                   <span>Time to Interactive</span>
                 </div>
-                <span className="text-green-500 text-3xl ml-12">0.3 s</span>
+                <span className="text-green-500 text-3xl ml-12">
+                  {
+                    this.props.data.lighthouseResult.audits.metrics.details
+                      .items[0].interactive / 100 + " ms"
+                  }
+                </span>
               </li>
               <li className="w-5/12 border-t my-4">
                 <div className="flex">
                   <div className="w-4 h-4 rounded-full bg-green-500 mx-4 mt-1"></div>
                   <span>Speed Index</span>
                 </div>
-                <span className="text-green-500 text-3xl ml-12">0.3 s</span>
+                <span className="text-green-500 text-3xl ml-12">
+                  {
+                    this.props.data.lighthouseResult.audits["speed-index"]
+                      .displayValue
+                  }
+                </span>
               </li>
               <li className="w-5/12 border-t my-4">
                 <div className="flex">
                   <div className="w-4 h-4 rounded-full bg-green-500 mx-4 mt-1"></div>
                   <span>Total Blocking Time</span>
                 </div>
-                <span className="text-green-500 text-3xl ml-12">0.3 s</span>
+                <span className="text-green-500 text-3xl ml-12">
+                  {
+                    this.props.data.lighthouseResult.audits[
+                      "total-blocking-time"
+                    ].displayValue
+                  }
+                </span>
               </li>
               <li className="w-5/12 border-t my-4">
                 <div className="flex">
                   <div className="w-4 h-4 rounded-full bg-green-500 mx-4 mt-1"></div>
                   <span>Largest Contentful Paint</span>
                 </div>
-                <span className="text-green-500 text-3xl ml-12">0.3 s</span>
+                <span className="text-green-500 text-3xl ml-12">
+                  {
+                    this.props.data.lighthouseResult.audits[
+                      "largest-contentful-paint"
+                    ].displayValue
+                  }
+                </span>
               </li>
               <li className="w-5/12 border-t my-4">
                 <div className="flex">
                   <div className="w-4 h-4 rounded-full bg-green-500 mx-4 mt-1"></div>
                   <span>Cumulative Layout Shift</span>
                 </div>
-                <span className="text-green-500 text-3xl ml-12">0.3 s</span>
+                <span className="text-green-500 text-3xl ml-12">
+                  {
+                    this.props.data.lighthouseResult.audits[
+                      "cumulative-layout-shift"
+                    ].displayValue
+                  }
+                </span>
               </li>
             </ul>
           </div>
